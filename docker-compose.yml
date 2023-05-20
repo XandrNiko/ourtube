@@ -1,0 +1,44 @@
+version: "3"
+
+services:
+  back:
+    container_name: back
+    build:
+      context: ./back/
+      dockerfile: Dockerfile
+    command: python3 -u back/app.py --host db
+    volumes:
+      - .:/back
+    ports:
+      - "5000:5000"
+    links:
+      - mongo
+    networks:
+      - backend
+      - frontend
+
+  front:
+    container_name: front
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    networks:
+      - frontend
+
+  mongo:
+    image: mongo:latest
+    networks: 
+      - backend
+
+networks:
+  backend:
+    driver: "bridge"
+  frontend:
+    driver: "bridge"

@@ -11,6 +11,8 @@ import requests
 import pymongo
 from bson import ObjectId
 from pymongo import TEXT
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 
 from flask import Flask, request, Response, redirect, url_for
 from flask_cors import CORS
@@ -33,6 +35,13 @@ status = {
 # Конфигурация доступа к Яндекс.Диск
 YANDEX_DISK_TOKEN = 'YOUR_YANDEX_DISK_TOKEN'
 YANDEX_DISK_UPLOAD_URL = 'https://cloud-api.yandex.net:443/v1/disk/resources/upload'
+
+
+@app.route("/", methods=['GET'])
+def hello():
+    args = request.args.get("name", default=None, type=None)
+
+    return Response(f"Hello {args}!")
 
 
 @app.route('/videos/<id>', methods=['GET'])
@@ -140,10 +149,15 @@ def post_video():
 if __name__ == "__main__":
     print("App run")
     try:
-        f = open('resources.json', 'r')
+        f = open('back/resources.json', 'r')
         resource = json.load(f)
-        y = yadisk.YaDisk(token=resource['token'])
-        client = pymongo.MongoClient(resource['db_address'])
+        y = yadisk.YaDisk(token='token_here')
+        client = pymongo.MongoClient(resource['db_address'], server_api=ServerApi('1'))
+        try:
+            client.admin.command('ping')
+            print("Pinged your deployment. You successfully connected to MongoDB!")
+        except Exception as e:
+            print(e)
         db = client[resource['db_name']]
         fs = gridfs.GridFS(db, collection='fs')
         db_collection = db.get_collection(resource['db_collection'])

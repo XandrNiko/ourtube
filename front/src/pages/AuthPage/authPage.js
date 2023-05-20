@@ -6,6 +6,7 @@ import "./style.css";
 const АuthPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showError, setShowError] = useState(false);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -17,7 +18,12 @@ const АuthPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(`Email: ${email}, Password: ${password}`);
+    if (email && password) {
+      console.log(`Email: ${email}, Password: ${password}`);
+      window.location = "/";
+    } else {
+      setShowError(true);
+    }
   };
 
   return (
@@ -25,22 +31,24 @@ const АuthPage = () => {
       <form onSubmit={handleSubmit} className="login-form">
         <h1>OUR TUBE</h1>
         <input
-          type="username"
+          required
+          type="email"
           placeholder="Email"
           className="login-input"
           value={email}
           onChange={handleEmailChange}
         />
         <input
+          required
           type="password"
           placeholder="Password"
           className="login-input"
           value={password}
           onChange={handlePasswordChange}
         />
-        <Link to="/" className="login-button">
-          <FiHome/>
-        </Link>
+        <button type="submit" className="login-button">
+          Войти
+        </button>
       </form>
     </div>
   );
