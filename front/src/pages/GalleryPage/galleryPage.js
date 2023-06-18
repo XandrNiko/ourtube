@@ -3,7 +3,7 @@ import { getAllVideos } from '../../videos_api/videos';
 import VideoGrid from "../../components/VideoGrid/videoGrid";
 import Card from "../../components/Card/card";
 import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
-import "./style.css";
+import "./galleryPage.css";
 
 const GalleryPage = () => {
   const [videos, setVideos] = useState([]);

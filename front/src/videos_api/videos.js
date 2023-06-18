@@ -57,3 +57,58 @@ export const postVideo = async (videoData) => {
         throw error;
     }
 };
+
+export const postUser = async (userData) => {
+    try {
+        const response = await axios.post(`${API_URL}/users`, userData);
+        const responseData = response.data;
+
+        return responseData;
+    } catch (error) {
+        console.error(error);
+
+        // Обработка ошибки
+        throw error;
+    }
+};
+
+export const submitLoginForm = async (userData) => {
+    try {
+        console.log(userData.get('password'));
+        const response = await axios.post(`${API_URL}/login`, userData);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+
+        // Обработка ошибки
+        throw error;
+    }
+};
+
+export const getUser = async (userId) => {
+    try {
+        const response = await axios.get(`${API_URL}/users/${userId}`);
+        const videoData = response.data;
+
+        return videoData;
+    } catch (error) {
+        console.error(error);
+
+        // Обработка ошибки
+        throw error;
+    }
+};
+
+export const getVideosByAuthor = async (authorId) => {
+    try {
+        const response = await axios.get(`${API_URL}/videos/by_author/${authorId}`);
+        const videosData = response.data;
+
+        return videosData;
+    } catch (error) {
+        console.error(error);
+
+        // Обработка ошибки
+        throw error;
+    }
+};

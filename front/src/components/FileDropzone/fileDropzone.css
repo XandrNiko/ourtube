@@ -1,0 +1,49 @@
+.dropzone-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #ccc;
+    width: 100%;
+    cursor: pointer;
+}
+
+.dropzone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    outline: none;
+}
+
+.dropzone-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.dropzone-content.accept {
+    background-color: #c7f2c3;
+}
+
+.file-preview {
+    max-width: 100%;
+    max-height: 200px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.file-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.dropzone-text {
+    font-size: 16px;
+    color: #777;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import VideoCard from '../VideoCard/videoCard';
+import './videoGrid.css';
 
-import './style.css';
 const VideoGrid = ({ videos, onVideoClick }) => (
   <div className="video-grid">
     {videos.map((video) => (

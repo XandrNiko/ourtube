@@ -1,0 +1,51 @@
+.video-card {
+  position: relative;
+  width: 320px;
+  height: 180px;
+  overflow: hidden;
+  padding: auto;
+  margin: auto;
+  animation: slide-up 0.5s ease;
+}
+
+.video-card-image {
+  width: 100%;
+  height: 100%;
+  filter: blur(3px);
+  transition: filter 0.3s ease-in-out;
+}
+
+.video-card:hover .video-card-image {
+  filter: blur(0px);
+}
+
+.video-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.video-card:hover .video-card-overlay {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.video-card-overlay-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.video-card-overlay-author {
+  font-size: 16px;
+  color: #fff;
+}

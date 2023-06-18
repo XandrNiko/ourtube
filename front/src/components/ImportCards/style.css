@@ -1,0 +1,13 @@
+.description-input-field {
+    height: 120px;
+    resize: none;
+}
+
+.import-step2-dropzone .dropzone-container{
+    height: 200px;
+    margin: 10px;
+}
+
+.import-step3-dialog .loader {
+    margin: 20px;
+}

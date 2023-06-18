@@ -1,0 +1,139 @@
+.dialog-page {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Roboto', sans-serif;
+}
+
+.dialog-container {
+    width: 640px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    animation: slide-up 0.5s ease;
+}
+
+.dialog-input {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-wrapper {
+    padding: 0 5px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.dialog-hor-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.dialog-input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    margin-top: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease;
+}
+
+.dialog-input-field:focus {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dialog-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 15px;
+    background-color: #007aff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.dialog-button:hover {
+    transform: translateY(-3px);
+    transition: transform 0.2s ease-in-out;
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.step {
+    background-color: #ccc;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    transition: all .2s ease-in-out;
+    transform: scale(1);
+}
+
+.step-indicator {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.step.active {
+    background-color: #333;
+    transform: scale(1.5);
+}
+
+.multistep-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.multistep-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.loader-spinner {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    border-radius: 50%;
+    padding: 10px;
+    border: 3px solid rgba(0, 0, 0, 0.3);
+    border-top-color: #007aff;
+    animation: spin 1s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }

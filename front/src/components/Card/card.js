@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiUser, FiLogOut, FiHome } from 'react-icons/fi';
 
-import './style.css';
+import './card.css';
 
 const Card = () => {
   return (

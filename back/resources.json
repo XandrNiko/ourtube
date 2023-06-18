@@ -1,7 +1,8 @@
 {
   "domain": "0.0.0.0",
   "port": 5000,
-  "db_address": "db_address_here",
+  "db_address": "mongodb+srv://xandrniko:QBwFIXoyGIn2E1Z8@main.pmjy3ns.mongodb.net/?retryWrites=true&w=majority",
   "db_name": "Main",
-  "db_collection": "Main"
+  "db_videos_collection": "videos",
+  "db_users_collection": "users"
 }

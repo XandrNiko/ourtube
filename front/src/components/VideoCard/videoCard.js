@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './style.css';
+import './videoCard.css';
 
 const VideoCard = ({ video, onVideoClick }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -24,12 +24,12 @@ const VideoCard = ({ video, onVideoClick }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="video-card__image-container">
-        <img src={video.imageSrc} alt="Video Thumbnail" className="video-card__image" />
-        <div className="video-card__overlay" style={overlayStyle}>
-          <div className="video-card__overlay-text">
-            <h3 className="video-card__overlay-title">{video.title}</h3>
-            <p className="video-card__overlay-author">{video.author}</p>
+      <div className="video-card-image-container">
+        <img src={video.imageSrc} alt="Video Thumbnail" className="video-card-image" />
+        <div className="video-card-overlay" style={overlayStyle}>
+          <div className="vvideo-card-overlay-text">
+            <h3 className="video-card-overlay-title">{video.title}</h3>
+            <p className="video-card-overlay-author">{video.author}</p>
           </div>
         </div>
       </div>

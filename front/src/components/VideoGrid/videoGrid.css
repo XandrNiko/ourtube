@@ -1,0 +1,12 @@
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
+    grid-gap: 20px;
+    grid-row: 20px;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .video-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, max-content));
+    }
+  }
